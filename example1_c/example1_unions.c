@@ -4,7 +4,7 @@
 // Declare a union with a bunch of different types in it.
 typedef union {
     int someNumber;                 // 4 bytes
-    float someRealNumber;           // 8 bytes
+    float someRealNumber;           // 4 bytes
     double someReallyRealNumber;    // 8 bytes
     char someCharacter;             // 1 byte
 } someUnion;
