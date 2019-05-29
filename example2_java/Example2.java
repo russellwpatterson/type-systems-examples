@@ -4,6 +4,9 @@ import static java.lang.System.out;
 
 public class Example2 {
     public static void main(String[] args) {
+        // Can't do this, because the types are incompatible, even if they inherit from the same base:
+        // Dog d = new Cat();
+
         out.println("\nGood casting result:");
         out.println("--------------------");
         goodCasting();

@@ -17,6 +17,6 @@ class Swimmer(Person):
 
 
 for c in [Swan, Swimmer]:
-    thing_swimming = c()
+    obj = c()
 
-    print(f"{thing_swimming.name} swam in {thing_swimming.location}.")
+    print(f"{obj.name} swam in {obj.location}.")
