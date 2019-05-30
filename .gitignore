@@ -1,3 +1,5 @@
 .vscode
 */bin/*
 */obj/*
+example1_c/example1_pointers
+example1_c/example1_unions
