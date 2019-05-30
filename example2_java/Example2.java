@@ -4,65 +4,29 @@ import static java.lang.System.out;
 
 public class Example2 {
     public static void main(String[] args) {
-        // Can't do this, because the types are incompatible, even if they inherit from the same base:
-        // Dog d = new Cat();
+        // Inferred Type would be "Cat"
+        var cat = new Cat();
 
-        out.println("\nGood casting result:");
-        out.println("--------------------");
-        goodCasting();
+        // We can reference an object by it's base class.
+        Animal animal = new Cat();
 
-        out.println("\nBad casting result:");
-        out.println("-------------------");
-        badCasting();
+        // It's not going to let us do this, because Cat is a derived class.
+        // This blows up at compile time, not at runtime, because of static type checking.
+        Cat cat2 = new Animal();
 
-        out.println("\nGood downcasting result:");
-        out.println("------------------------");
-        goodDowncasting();
+        // But we can do this explicit cast. The compiler will live with it, 
+        // because you're trying really hard and it wants to reward that (with a runtime error).
+        Cat cat3 = (Cat) new Animal();
 
-        out.println("\nBad downcasting result:");
-        out.println("-----------------------");
-        badDowncasting();
-    }
+        // Dog and Cat have a common base, but you can't implicitly cast between them.
+        Dog dog = new Cat();
+        Cat cat4 = new Dog();
 
-    static void goodCasting() {
-        try {
-            Cat animal = new Cat();
-            Animal cat = (Animal)animal;
-            cat.makeSound();
-        } catch (Exception e) {
-            out.println(e);
-        }
-    }
+        // The compiler won't let you do this, since they're not derived from each other.
+        Dog dog2 = (Dog) new Cat();
+        Cat cat5 = (Cat) new Dog();
 
-    static void badCasting() {
-        try {
-            //Cat cat = new Animal();
-            Cat cat = (Cat)new Animal();
-            cat.makeSound();
-        } catch (Exception e) {
-            out.println(e);
-        }
-    }
-
-    static void goodDowncasting() {
-        try {  
-            Animal animal = new Dog();
-            Dog dog = (Dog)animal;
-            dog.makeSound();
-        } catch (Exception e) {
-            out.println(e);
-        }
-    }
-
-    static void badDowncasting() {
-        try {  
-            Animal animal = new Animal();
-            // Dog dog = animal;
-            Dog dog = (Dog)animal;
-            dog.makeSound();
-        } catch (Exception e) {
-            out.println(e);
-        }
+        // Basically thanks to static type checking, we're avoiding some, but not all type problems at compile time.
     }
 }
 

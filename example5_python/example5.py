@@ -12,7 +12,6 @@ class Person:
 class Swimmer(Person):
     def __init__(self):
         super().__init__()
-        self.name = "Swimmer"
         self.location = "the pool"
 
 
