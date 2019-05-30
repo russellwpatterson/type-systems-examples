@@ -1,5 +1,5 @@
 run:
-	@java Downcasting.java
+	@java Example2.java
 
 downcast:
-	@java Example2.java
+	@java Downcasting.java
